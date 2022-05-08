@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import CakeOutlinedIcon from "@mui/icons-material/CakeOutlined";
 import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
@@ -7,8 +7,6 @@ import LiquorOutlinedIcon from "@mui/icons-material/LiquorOutlined";
 import Details from "../components/Details";
 
 const Offer = () => {
-    const [details, setDetails] = useState(null);
-
     return (
         <Box sx={{ minHeight: "calc(100vh - 4rem)", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
             <Paper elevation={5} sx={{ margin: "2rem", padding: "1rem" }}>

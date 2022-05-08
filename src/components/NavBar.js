@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AppBar, Tabs, Tab, Toolbar } from "@mui/material";
+import { Tabs, Tab, Toolbar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {

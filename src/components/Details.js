@@ -1,4 +1,4 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 const Details = ({ title, description, icon }) => {
@@ -24,14 +24,12 @@ const Details = ({ title, description, icon }) => {
                     {description}
                 </Typography>
             ) : (
-                // <Box sx={{}}>
                 <>
                     {icon}
                     <Typography variant="h6" align="center">
-                        DLA DZIECI
+                        {title}
                     </Typography>
                 </>
-                // </Box>
             )}
         </Paper>
     );
