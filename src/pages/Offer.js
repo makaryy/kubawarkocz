@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Paper, Typography, useTheme, useMediaQuery } from "@mui/material";
 import CakeOutlinedIcon from "@mui/icons-material/CakeOutlined";
 import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
@@ -7,8 +7,17 @@ import LiquorOutlinedIcon from "@mui/icons-material/LiquorOutlined";
 import Details from "../components/Details";
 
 const Offer = () => {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up("sm"));
     return (
-        <Box sx={{ minHeight: "calc(100vh - 4rem)", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+        <Box
+            sx={{
+                minHeight: matches ? "calc(100vh - 4rem)" : "100vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column"
+            }}>
             <Paper elevation={5} sx={{ margin: "2rem", padding: "1rem" }}>
                 <Typography variant="h5" align="center">
                     STAND UP
@@ -87,6 +96,10 @@ const Offer = () => {
                     </Grid>
                 </Box>
             </Paper>
+            <Typography variant="body1" align="center" sx={{ margin: "2rem" }}>
+                *Wymienione w ofercie wydarzenia to podstawowe propozycje do wyboru. Istnieje możliwość występu również na innych imprezach, takich
+                jak na przykład wieczór kawalerski czy festyn. W celu ustalenia szczegółów zapraszam do kontaktu.
+            </Typography>
         </Box>
     );
 };

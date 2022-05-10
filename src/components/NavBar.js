@@ -1,15 +1,38 @@
-import React, { useState } from "react";
-import { Tabs, Tab, Toolbar } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Tabs, Tab, Toolbar, useTheme, useMediaQuery, Menu, MenuItem } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const NavBar = () => {
+    const location = useLocation();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
+    //Desktop view state handlers
     const [value, setValue] = useState("/");
     const navigate = useNavigate();
-    const handleClick = (option) => {
+    const handleDesktopClick = (option) => {
         navigate(option);
         setValue(option);
     };
-    return (
+
+    useEffect(() => {
+        //Refresh Handler
+        value !== location && setValue(location.pathname);
+    }, [value, location]);
+
+    //Mobile view state handlers
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleMobileClick = (e) => {
+        setAnchorEl(e.currentTarget);
+    };
+    const handleMobileClose = (option) => {
+        navigate(option);
+        setAnchorEl(null);
+    };
+
+    return matches ? (
         <Toolbar
             sx={{
                 display: "flex",
@@ -28,38 +51,73 @@ const NavBar = () => {
                     alignItems: "center"
                 }}
                 textColor="secondary"
-                indicatorColor="secondary"
-                // TabIndicatorProps={{ sx: { color: (theme) => theme.palette.primary.dark } }}
-            >
+                indicatorColor="secondary">
                 <Tab
                     value={"/"}
                     label="Strona Główna"
-                    onClick={() => handleClick("/")}
+                    onClick={() => handleDesktopClick("/")}
                     sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                     disableRipple
                 />
                 <Tab
                     value={"/about"}
                     label="O Mnie"
-                    onClick={() => handleClick("/about")}
+                    onClick={() => handleDesktopClick("/about")}
                     sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                     disableRipple
                 />
                 <Tab
                     value={"/offer"}
                     label="Oferta"
-                    onClick={() => handleClick("/offer")}
+                    onClick={() => handleDesktopClick("/offer")}
                     sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                     disableRipple
                 />
                 <Tab
                     value={"/contact"}
                     label="Kontakt"
-                    onClick={() => handleClick("/contact")}
+                    onClick={() => handleDesktopClick("/contact")}
                     sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                     disableRipple
                 />
             </Tabs>
+        </Toolbar>
+    ) : (
+        <Toolbar
+            sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "rgba(0,0,0,0)",
+                height: "4rem"
+            }}>
+            <MenuIcon sx={{ fontSize: "3rem" }} onClick={handleMobileClick} />
+            <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleMobileClose}
+                MenuListProps={{
+                    sx: { backgroundColor: (theme) => theme.palette.secondary.light, width: "calc(100vw - 32px)" }
+                }}>
+                <MenuItem
+                    sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
+                    onClick={() => handleMobileClose("/")}>
+                    Strona Główna
+                </MenuItem>
+                <MenuItem
+                    sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
+                    onClick={() => handleMobileClose("/about")}>
+                    O mnie
+                </MenuItem>
+                <MenuItem
+                    sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
+                    onClick={() => handleMobileClose("/offer")}>
+                    Oferta
+                </MenuItem>
+                <MenuItem sx={{ display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => handleMobileClose("/contact")}>
+                    Kontakt
+                </MenuItem>
+            </Menu>
         </Toolbar>
     );
 };
