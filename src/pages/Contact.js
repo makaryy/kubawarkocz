@@ -3,6 +3,7 @@ import { Box, TextField, Button, Paper, Typography, Link, useTheme, useMediaQuer
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import axios from "axios";
 
 const Contact = () => {
     const theme = useTheme();
@@ -10,6 +11,13 @@ const Contact = () => {
 
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post("https://mail-sender-kubawarkocz.herokuapp.com/send", { email, message });
+        setEmail("");
+        setMessage("");
+    };
 
     return (
         <Box
@@ -24,7 +32,7 @@ const Contact = () => {
                 {" "}
                 Zapraszam do kontaktu
             </Typography>
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
                 <Paper
                     elevation={5}
                     sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", padding: "2rem" }}>
@@ -95,7 +103,7 @@ const Contact = () => {
                         onChange={(e) => setMessage(e.target.value)}
                         value={message}
                     />
-                    <Button variant="outlined" sx={{ margin: "1rem" }} color="secondary">
+                    <Button type="submit" variant="outlined" sx={{ margin: "1rem" }} color="secondary">
                         Wyślij
                     </Button>
                 </Paper>
