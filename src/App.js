@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Events from "./pages/Events";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 
@@ -49,6 +50,7 @@ function App() {
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/about" element={<About />} />
                             <Route path="/offer" element={<Offer />} />
+                            <Route path="/events" element={<Events />} />
                         </Routes>
                     </BrowserRouter>
                 </Container>

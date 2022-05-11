@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Tabs, Tab, Toolbar, useTheme, useMediaQuery, Menu, MenuItem, Link } from "@mui/material";
+import { Tabs, Tab, Toolbar, useTheme, useMediaQuery, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -67,6 +67,13 @@ const NavBar = () => {
                     disableRipple
                 />
                 <Tab
+                    value={"/events"}
+                    label="Wydarzenia"
+                    onClick={() => handleDesktopClick("/events")}
+                    sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
+                    disableRipple
+                />
+                <Tab
                     value={"/offer"}
                     label="Oferta"
                     onClick={() => handleDesktopClick("/offer")}
@@ -109,6 +116,11 @@ const NavBar = () => {
                     sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
                     onClick={() => handleMobileClose("/about")}>
                     O mnie
+                </MenuItem>
+                <MenuItem
+                    sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
+                    onClick={() => handleMobileClose("/events")}>
+                    Wydarzenia
                 </MenuItem>
                 <MenuItem
                     sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}

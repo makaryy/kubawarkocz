@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Paper, Typography, useMediaQuery, Box, useTheme } from "@mui/material";
+import { Paper, Typography, useMediaQuery, Box } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const Details = ({ title, description, icon }) => {
     const theme = useTheme();
