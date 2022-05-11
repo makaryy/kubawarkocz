@@ -1,12 +1,15 @@
 import React from "react";
-import { Box, Grid, Paper, Typography, useTheme, useMediaQuery } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Box, Grid, Paper, Typography, useTheme, useMediaQuery, Link } from "@mui/material";
 import CakeOutlinedIcon from "@mui/icons-material/CakeOutlined";
 import BusinessCenterOutlinedIcon from "@mui/icons-material/BusinessCenterOutlined";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import LiquorOutlinedIcon from "@mui/icons-material/LiquorOutlined";
 import Details from "../components/Details";
+import "../index.css";
 
 const Offer = () => {
+    const navigate = useNavigate();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up("sm"));
     return (
@@ -98,7 +101,13 @@ const Offer = () => {
             </Paper>
             <Typography variant="body1" align="center" sx={{ margin: "2rem" }}>
                 *Wymienione w ofercie wydarzenia to podstawowe propozycje do wyboru. Istnieje możliwość występu również na innych imprezach, takich
-                jak na przykład wieczór kawalerski czy festyn. W celu ustalenia szczegółów zapraszam do kontaktu.
+                jak na przykład wieczór kawalerski czy festyn. W celu ustalenia szczegółów zapraszam do{" "}
+                <Link
+                    onClick={() => navigate("/contact")}
+                    sx={{ cursor: "pointer", color: matches ? theme.palette.secondary.main : theme.palette.secondary.dark }}>
+                    kontaktu
+                </Link>
+                .
             </Typography>
         </Box>
     );

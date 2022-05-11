@@ -1,6 +1,5 @@
-import { Paper, Typography, useMediaQuery } from "@mui/material";
 import React, { useState } from "react";
-import { useTheme } from "@mui/material/styles";
+import { Paper, Typography, useMediaQuery, Box, useTheme } from "@mui/material";
 
 const Details = ({ title, description, icon }) => {
     const theme = useTheme();
@@ -23,24 +22,25 @@ const Details = ({ title, description, icon }) => {
             }}
             onMouseEnter={() => setShowDescription(true)}
             onMouseLeave={() => setShowDescription(false)}
-            onClick={() => !matches && setShowDescription(!showDescription)}>
+            onClick={() => !matches && setShowDescription(!showDescription)}
+            className="zoom-out">
             {showDescription ? (
                 matches ? (
-                    <Typography align="center" variant="body1">
+                    <Typography align="center" variant="body1" className="zoom-in" sx={{ transform: "scale(90%)" }}>
                         {description}
                     </Typography>
                 ) : (
-                    <Typography align="center" variant="body2">
+                    <Typography align="center" variant="body2" className="zoom-in" sx={{ transform: "scale(90%)" }}>
                         {description}
                     </Typography>
                 )
             ) : (
-                <>
+                <Box className="zoom-out">
                     {icon}
                     <Typography variant="h6" align="center">
                         {title}
                     </Typography>
-                </>
+                </Box>
             )}
         </Paper>
     );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Tabs, Tab, Toolbar, useTheme, useMediaQuery, Menu, MenuItem } from "@mui/material";
+import { Tabs, Tab, Toolbar, useTheme, useMediaQuery, Menu, MenuItem, Link } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -86,11 +86,12 @@ const NavBar = () => {
         <Toolbar
             sx={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "space-between",
                 alignItems: "center",
                 backgroundColor: "rgba(0,0,0,0)",
                 height: "4rem"
             }}>
+            <img src="/assets/logo.png" alt="" className="navbar-img" onClick={() => navigate("/")} />
             <MenuIcon sx={{ fontSize: "3rem" }} onClick={handleMobileClick} />
             <Menu
                 anchorEl={anchorEl}
