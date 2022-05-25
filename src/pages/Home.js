@@ -1,108 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Grid, Paper, Typography } from "@mui/material";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
-import ContactsIcon from "@mui/icons-material/Contacts";
+import { Box, Typography, Link, useMediaQuery, useTheme } from "@mui/material";
+import BigImage from "../components/BigImage";
 
 const Home = () => {
+    const [bigImage, setBigImage] = useState(null);
+    const [open, setOpen] = useState(false);
     const navigate = useNavigate();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up("md"));
+
+    const handleClose = () => {
+        setOpen(false);
+        setBigImage(null);
+    };
+
+    const handleOpen = (src) => {
+        if (matches) {
+            setOpen(true);
+            setBigImage(src);
+        }
+    };
     return (
         <Box
             sx={{
-                minHeight: "calc(100vh - 4rem)",
+                minHeight: "calc(100vh - 6rem)",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                flexDirection: "column"
+                flexDirection: matches ? "row" : "column-reverse"
             }}>
-            <img src="/assets/logo.png" alt="" style={{ maxWidth: "100%", transform: "scale(90%)" }} />
-            <Paper
+            {open && <BigImage src={bigImage} onClick={handleClose} open={open} />}
+            <Box
                 elevation={5}
                 sx={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "column",
-                    margin: "2rem",
-                    padding: "2rem",
-                    width: "100%"
+                    margin: matches ? "2rem" : "1rem",
+                    padding: matches ? "2rem" : "1rem",
+                    width: matches ? "50%" : "100%"
                 }}>
-                <Typography variant="h6" align="center" gutterBottom sx={{ width: "70%", marginBottom: "2rem" }}>
-                    Cześć, na imię mam Kuba i zajmuję się iluzją. Cieszę się, że znalazłeś się w tym miejscu. Serdecznie zapraszam do zapoznania się z
-                    moją działalnością z magią.
-                </Typography>
-
-                <Grid container alignItems="center" justifyContent="center" gap={2}>
-                    <Grid item md={4} xs={12}>
-                        <Paper
-                            elevation={5}
-                            sx={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                flexDirection: "column",
-                                padding: "2rem",
-                                gap: 2,
-                                cursor: "pointer",
-                                transitionDuration: "200ms",
-                                transitionProperty: "transform",
-                                ":hover": {
-                                    transform: "scale(95%)"
-                                }
+                <>
+                    <header>
+                        <Typography variant="h5" align="center" gutterBottom sx={{ width: "100%", marginBottom: "2rem" }}>
+                            Cześć nazywam się Kuba Warkocz i jestem iluzjonistą z ponad 5 letnim doświadczeniem. Z przyjemnością uświetnie twoje
+                            wydarzenie profesjonalnym pokazem iluzji. Zapoznaj się z{" "}
+                            <Link onClick={() => navigate("/offer")} sx={{ color: (theme) => theme.palette.secondary.main }}>
+                                ofertą
+                            </Link>{" "}
+                            oraz koniecznie sprawdź reakcje gości na zdjęciach poniżej.
+                        </Typography>
+                    </header>
+                    <Box sx={{ display: "flex", flexDirection: matches ? "row" : "column", justifyContent: "space-between", alignItems: "center" }}>
+                        <img
+                            src="/assets/kuba9.jpg"
+                            alt="Kuba w Akcji 1"
+                            className={matches ? "home-description-img shadow-img" : "description-img-mobile shadow-img"}
+                            onClick={(e) => {
+                                handleOpen(e.currentTarget.src);
                             }}
-                            onClick={() => navigate("/about")}>
-                            <PersonOutlineIcon sx={{ fontSize: "4rem" }} />
-                            <Typography>Informacje o mnie</Typography>
-                        </Paper>
-                    </Grid>
-                    <Grid item md={4} xs={12}>
-                        <Paper
-                            elevation={5}
-                            sx={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                flexDirection: "column",
-                                padding: "2rem",
-                                gap: 2,
-                                cursor: "pointer",
-                                transitionDuration: "200ms",
-                                transitionProperty: "transform",
-
-                                ":hover": {
-                                    transform: "scale(95%)"
-                                }
+                        />
+                        <img
+                            src="/assets/kuba8.jpg"
+                            alt="Kuba w Akcji 2"
+                            className={matches ? "home-description-img shadow-img" : "description-img-mobile shadow-img"}
+                            onClick={(e) => {
+                                handleOpen(e.currentTarget.src);
                             }}
-                            onClick={() => navigate("/offer")}>
-                            <PlaylistAddCheckIcon sx={{ fontSize: "4rem" }} />
-                            <Typography>Moja oferta</Typography>
-                        </Paper>
-                    </Grid>
-                    <Grid item md={4} xs={12}>
-                        <Paper
-                            elevation={5}
-                            sx={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                flexDirection: "column",
-                                padding: "2rem",
-                                gap: 2,
-                                cursor: "pointer",
-                                transitionDuration: "200ms",
-                                transitionProperty: "transform",
-                                ":hover": {
-                                    transform: "scale(95%)"
-                                }
+                        />
+                        <img
+                            src="/assets/kuba10.jpg"
+                            alt="Kuba w Akcji 3"
+                            className={matches ? "home-description-img shadow-img" : "description-img-mobile shadow-img"}
+                            onClick={(e) => {
+                                handleOpen(e.currentTarget.src);
                             }}
-                            onClick={() => navigate("/contact")}>
-                            <ContactsIcon sx={{ fontSize: "4rem" }} />
-                            <Typography>Skontaktuj się ze mną</Typography>
-                        </Paper>
-                    </Grid>
-                </Grid>
-            </Paper>
+                        />
+                    </Box>
+                </>
+            </Box>
+            <img
+                src="/assets/kuba5.jpg"
+                alt="Kuba Warkocz - Iluzjonista"
+                className={matches ? "home-img shadow-img" : "home-img-mobile shadow-img"}
+            />
         </Box>
     );
 };

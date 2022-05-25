@@ -1,6 +1,7 @@
 import { Box, Container, CssBaseline } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -38,11 +39,11 @@ function App() {
             <CssBaseline />
             <Box
                 sx={{
-                    backgroundImage: `linear-gradient(15deg,#f78239, white, white, white, #f78239)`,
+                    backgroundImage: `linear-gradient(15deg, #f78239, white, white, white, #f78239)`,
                     backgroundSize: "150%",
                     backgroundPosition: "center"
                 }}>
-                <Container maxWidth="lg">
+                <Container maxWidth="xl">
                     <BrowserRouter>
                         <NavBar />
                         <Routes>
@@ -52,6 +53,7 @@ function App() {
                             <Route path="/offer" element={<Offer />} />
                             <Route path="/events" element={<Events />} />
                         </Routes>
+                        <Footer />
                     </BrowserRouter>
                 </Container>
             </Box>

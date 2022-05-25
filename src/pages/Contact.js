@@ -22,7 +22,7 @@ const Contact = () => {
     return (
         <Box
             sx={{
-                minHeight: matches ? "calc(100vh - 4rem)" : "100vh",
+                minHeight: matches ? "calc(100vh - 6rem)" : "100vh",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",

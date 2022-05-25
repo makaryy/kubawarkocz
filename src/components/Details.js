@@ -26,15 +26,9 @@ const Details = ({ title, description, icon }) => {
             onClick={() => !matches && setShowDescription(!showDescription)}
             className="zoom-out">
             {showDescription ? (
-                matches ? (
-                    <Typography align="center" variant="body1" className="zoom-in" sx={{ transform: "scale(90%)" }}>
-                        {description}
-                    </Typography>
-                ) : (
-                    <Typography align="center" variant="body2" className="zoom-in" sx={{ transform: "scale(90%)" }}>
-                        {description}
-                    </Typography>
-                )
+                <Typography align="center" variant={matches ? "body1" : "body2"} className="zoom-in" sx={{ transform: "scale(90%)" }}>
+                    {description}
+                </Typography>
             ) : (
                 <Box className="zoom-out">
                     {icon}

@@ -1,3 +1,31 @@
+.home-img {
+    max-width: 30%;
+    margin: 2rem;
+}
+.home-img-mobile {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.home-description-img {
+    width: 30%;
+    margin: 1rem;
+    cursor: pointer;
+}
+.description-img {
+    width: 30%;
+    margin: 1rem;
+}
+.description-img-mobile {
+    width: 100%;
+    margin: 1rem;
+}
+
+.shadow-img {
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0px;
+}
+
 .navbar-img {
     object-fit: contain;
     height: 80%;

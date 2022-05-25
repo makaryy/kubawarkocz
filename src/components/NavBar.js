@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Tabs, Tab, Toolbar, useTheme, useMediaQuery, Menu, MenuItem } from "@mui/material";
+import { Tabs, Tab, Toolbar, useTheme, useMediaQuery, Menu, MenuItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const NavBar = () => {
     const location = useLocation();
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up("sm"));
+    const matchesSm = useMediaQuery(theme.breakpoints.up("sm"));
+    const matchesMd = useMediaQuery(theme.breakpoints.up("md"));
+    const matchesLg = useMediaQuery(theme.breakpoints.up("lg"));
 
     //Desktop view state handlers
     const [value, setValue] = useState("/");
@@ -18,7 +20,7 @@ const NavBar = () => {
 
     useEffect(() => {
         //Refresh Handler
-        value !== location && setValue(location.pathname);
+        value !== location.pathname && setValue(location.pathname);
     }, [value, location]);
 
     //Mobile view state handlers
@@ -32,62 +34,87 @@ const NavBar = () => {
         setAnchorEl(null);
     };
 
-    return matches ? (
+    return matchesSm ? (
         <Toolbar
             sx={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "space-around",
                 alignItems: "center",
                 backgroundColor: "rgba(0,0,0,0)",
-                height: "4rem",
-                columnGap: "2rem"
+                height: "4rem"
             }}>
-            <Tabs
-                value={value}
-                sx={{
-                    minWidth: "fit-content",
-                    display: "flex",
-                    justifyContent: "space-around",
-                    alignItems: "center"
-                }}
-                textColor="secondary"
-                indicatorColor="secondary">
-                <Tab
-                    value={"/"}
-                    label="Strona Główna"
-                    onClick={() => handleDesktopClick("/")}
-                    sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
-                    disableRipple
-                />
-                <Tab
-                    value={"/about"}
-                    label="O Mnie"
-                    onClick={() => handleDesktopClick("/about")}
-                    sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
-                    disableRipple
-                />
-                <Tab
-                    value={"/events"}
-                    label="Wydarzenia"
-                    onClick={() => handleDesktopClick("/events")}
-                    sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
-                    disableRipple
-                />
-                <Tab
-                    value={"/offer"}
-                    label="Oferta"
-                    onClick={() => handleDesktopClick("/offer")}
-                    sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
-                    disableRipple
-                />
-                <Tab
-                    value={"/contact"}
-                    label="Kontakt"
-                    onClick={() => handleDesktopClick("/contact")}
-                    sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
-                    disableRipple
-                />
-            </Tabs>
+            {matchesLg && (
+                <Typography
+                    variant="body1"
+                    align="center"
+                    sx={{
+                        cursor: "pointer",
+                        // color: (theme) => theme.palette.secondary.main,
+                        fontSize: "1.25rem",
+                        textShadow: "1px 1px 16px #222222",
+                        marginTop: "8px"
+                    }}
+                    onClick={() => navigate("/")}>
+                    Iluzjonista
+                    <br />
+                    Kuba Warkocz
+                </Typography>
+            )}
+            <nav>
+                <Tabs
+                    value={value}
+                    sx={{
+                        minWidth: "fit-content",
+                        display: "flex",
+                        justifyContent: "space-around",
+                        alignItems: "center"
+                    }}
+                    textColor="secondary"
+                    indicatorColor="secondary">
+                    <Tab
+                        value={"/"}
+                        label="Strona Główna"
+                        onClick={() => handleDesktopClick("/")}
+                        sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
+                        disableRipple
+                    />
+                    <Tab
+                        value={"/about"}
+                        label="O Mnie"
+                        onClick={() => handleDesktopClick("/about")}
+                        sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
+                        disableRipple
+                    />
+                    <Tab
+                        value={"/events"}
+                        label="Wydarzenia"
+                        onClick={() => handleDesktopClick("/events")}
+                        sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
+                        disableRipple
+                    />
+                    <Tab
+                        value={"/offer"}
+                        label="Oferta"
+                        onClick={() => handleDesktopClick("/offer")}
+                        sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
+                        disableRipple
+                    />
+                    <Tab
+                        value={"/contact"}
+                        label="Kontakt"
+                        onClick={() => handleDesktopClick("/contact")}
+                        sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
+                        disableRipple
+                    />
+                </Tabs>
+            </nav>
+            {matchesLg && (
+                <Typography variant="body1" align="center" sx={{ fontSize: "1.25rem", textShadow: "1px 1px 16px #222222", marginTop: "8px" }}>
+                    Skontaktuj się
+                    <br />
+                    603 521 429
+                </Typography>
+            )}
         </Toolbar>
     ) : (
         <Toolbar
@@ -99,38 +126,40 @@ const NavBar = () => {
                 height: "4rem"
             }}>
             <img src="/assets/logo.png" alt="" className="navbar-img" onClick={() => navigate("/")} />
-            <MenuIcon sx={{ fontSize: "3rem" }} onClick={handleMobileClick} />
-            <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleMobileClose}
-                MenuListProps={{
-                    sx: { backgroundColor: (theme) => theme.palette.secondary.light, width: "calc(100vw - 32px)" }
-                }}>
-                <MenuItem
-                    sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
-                    onClick={() => handleMobileClose("/")}>
-                    Strona Główna
-                </MenuItem>
-                <MenuItem
-                    sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
-                    onClick={() => handleMobileClose("/about")}>
-                    O mnie
-                </MenuItem>
-                <MenuItem
-                    sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
-                    onClick={() => handleMobileClose("/events")}>
-                    Wydarzenia
-                </MenuItem>
-                <MenuItem
-                    sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
-                    onClick={() => handleMobileClose("/offer")}>
-                    Oferta
-                </MenuItem>
-                <MenuItem sx={{ display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => handleMobileClose("/contact")}>
-                    Kontakt
-                </MenuItem>
-            </Menu>
+            <nav>
+                <MenuIcon sx={{ fontSize: "3rem" }} onClick={handleMobileClick} />
+                <Menu
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleMobileClose}
+                    MenuListProps={{
+                        sx: { backgroundColor: (theme) => theme.palette.secondary.light, width: "calc(100vw - 32px)" }
+                    }}>
+                    <MenuItem
+                        sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
+                        onClick={() => handleMobileClose("/")}>
+                        Strona Główna
+                    </MenuItem>
+                    <MenuItem
+                        sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
+                        onClick={() => handleMobileClose("/about")}>
+                        O mnie
+                    </MenuItem>
+                    <MenuItem
+                        sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
+                        onClick={() => handleMobileClose("/events")}>
+                        Wydarzenia
+                    </MenuItem>
+                    <MenuItem
+                        sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
+                        onClick={() => handleMobileClose("/offer")}>
+                        Oferta
+                    </MenuItem>
+                    <MenuItem sx={{ display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => handleMobileClose("/contact")}>
+                        Kontakt
+                    </MenuItem>
+                </Menu>
+            </nav>
         </Toolbar>
     );
 };
