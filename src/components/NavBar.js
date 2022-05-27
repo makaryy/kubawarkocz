@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Tabs, Tab, Toolbar, useTheme, useMediaQuery, Menu, MenuItem, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const NavBar = () => {
     const location = useLocation();
     const theme = useTheme();
     const matchesSm = useMediaQuery(theme.breakpoints.up("sm"));
-    const matchesMd = useMediaQuery(theme.breakpoints.up("md"));
     const matchesLg = useMediaQuery(theme.breakpoints.up("lg"));
 
     //Desktop view state handlers
     const [value, setValue] = useState("/");
-    const navigate = useNavigate();
     const handleDesktopClick = (option) => {
-        navigate(option);
         setValue(option);
     };
 
@@ -30,7 +27,6 @@ const NavBar = () => {
         setAnchorEl(e.currentTarget);
     };
     const handleMobileClose = (option) => {
-        navigate(option);
         setAnchorEl(null);
     };
 
@@ -44,21 +40,22 @@ const NavBar = () => {
                 height: "4rem"
             }}>
             {matchesLg && (
-                <Typography
-                    variant="body1"
-                    align="center"
-                    sx={{
-                        cursor: "pointer",
-                        // color: (theme) => theme.palette.secondary.main,
-                        fontSize: "1.25rem",
-                        textShadow: "1px 1px 16px #222222",
-                        marginTop: "8px"
-                    }}
-                    onClick={() => navigate("/")}>
-                    Iluzjonista
-                    <br />
-                    Kuba Warkocz
-                </Typography>
+                <Link to="/" className="nav-link">
+                    <Typography
+                        variant="body1"
+                        align="center"
+                        sx={{
+                            cursor: "pointer",
+                            fontSize: "1.25rem",
+                            textShadow: "1px 1px 16px #222222",
+                            marginTop: "8px",
+                            textDecoration: "none"
+                        }}>
+                        Iluzjonista
+                        <br />
+                        Kuba Warkocz
+                    </Typography>
+                </Link>
             )}
             <nav>
                 <Tabs
@@ -70,39 +67,45 @@ const NavBar = () => {
                         alignItems: "center"
                     }}
                     textColor="secondary"
-                    indicatorColor="secondary">
+                    indicatorColor="secondary"
+                    onChange={handleDesktopClick}>
                     <Tab
                         value={"/"}
                         label="Strona Główna"
-                        onClick={() => handleDesktopClick("/")}
+                        to="/"
+                        component={Link}
                         sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                         disableRipple
                     />
                     <Tab
                         value={"/about"}
                         label="O Mnie"
-                        onClick={() => handleDesktopClick("/about")}
+                        to="about"
+                        component={Link}
                         sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                         disableRipple
                     />
                     <Tab
                         value={"/events"}
                         label="Wydarzenia"
-                        onClick={() => handleDesktopClick("/events")}
+                        to="events"
+                        component={Link}
                         sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                         disableRipple
                     />
                     <Tab
                         value={"/offer"}
                         label="Oferta"
-                        onClick={() => handleDesktopClick("/offer")}
+                        to="offer"
+                        component={Link}
                         sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                         disableRipple
                     />
                     <Tab
                         value={"/contact"}
                         label="Kontakt"
-                        onClick={() => handleDesktopClick("/contact")}
+                        to="contact"
+                        component={Link}
                         sx={{ borderRadius: "1rem", color: "black", margin: "0.5rem" }}
                         disableRipple
                     />
@@ -125,7 +128,9 @@ const NavBar = () => {
                 backgroundColor: "rgba(0,0,0,0)",
                 height: "4rem"
             }}>
-            <img src="/assets/logo.png" alt="" className="navbar-img" onClick={() => navigate("/")} />
+            <Link to="/" className="navbar-link">
+                <img src="/assets/logo.png" alt="" className="navbar-img" />
+            </Link>
             <nav>
                 <MenuIcon sx={{ fontSize: "3rem" }} onClick={handleMobileClick} />
                 <Menu
@@ -137,26 +142,36 @@ const NavBar = () => {
                     }}>
                     <MenuItem
                         sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
-                        onClick={() => handleMobileClose("/")}>
-                        Strona Główna
+                        onClick={handleMobileClose}>
+                        <Link to="/" className="nav-link">
+                            Strona Główna
+                        </Link>
                     </MenuItem>
                     <MenuItem
                         sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
-                        onClick={() => handleMobileClose("/about")}>
-                        O mnie
+                        onClick={handleMobileClose}>
+                        <Link to="/about" className="nav-link">
+                            O mnie
+                        </Link>
                     </MenuItem>
                     <MenuItem
                         sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
-                        onClick={() => handleMobileClose("/events")}>
-                        Wydarzenia
+                        onClick={handleMobileClose}>
+                        <Link to="/events" className="nav-link">
+                            Wydarzenia
+                        </Link>
                     </MenuItem>
                     <MenuItem
                         sx={{ display: "flex", alignItems: "center", justifyContent: "center", borderBottom: "1px solid white" }}
-                        onClick={() => handleMobileClose("/offer")}>
-                        Oferta
+                        onClick={handleMobileClose}>
+                        <Link to="/offer" className="nav-link">
+                            Oferta
+                        </Link>
                     </MenuItem>
-                    <MenuItem sx={{ display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => handleMobileClose("/contact")}>
-                        Kontakt
+                    <MenuItem sx={{ display: "flex", alignItems: "center", justifyContent: "center" }} onClick={handleMobileClose}>
+                        <Link to="/contact" className="nav-link">
+                            Kontakt
+                        </Link>
                     </MenuItem>
                 </Menu>
             </nav>

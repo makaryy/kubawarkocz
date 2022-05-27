@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Link } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-    const navigate = useNavigate();
     return (
         <footer>
             <Box
@@ -16,19 +15,19 @@ const Footer = () => {
                     height: "2rem",
                     flexWrap: "wrap"
                 }}>
-                <Link onClick={() => navigate("/")} sx={{ color: "#000", fontSize: "0.75rem", cursor: "pointer" }}>
+                <Link to="/" className="footer-link">
                     Strona Główna
                 </Link>
-                <Link onClick={() => navigate("/about")} sx={{ color: "#000", fontSize: "0.75rem", cursor: "pointer" }}>
+                <Link to="/about" className="footer-link">
                     O mnie
                 </Link>
-                <Link onClick={() => navigate("/offer")} sx={{ color: "#000", fontSize: "0.75rem", cursor: "pointer" }}>
+                <Link to="/offer" className="footer-link">
                     Oferta
                 </Link>
-                <Link onClick={() => navigate("/events")} sx={{ color: "#000", fontSize: "0.75rem", cursor: "pointer" }}>
+                <Link to="/events" className="footer-link">
                     Wydarzenia
                 </Link>
-                <Link onClick={() => navigate("/contact")} sx={{ color: "#000", fontSize: "0.75rem", cursor: "pointer" }}>
+                <Link to="/contact" className="footer-link">
                     Kontakt
                 </Link>
             </Box>
