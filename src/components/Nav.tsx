@@ -1,13 +1,14 @@
 import Link from "next/link";
 import HamburgerMenuIcon from "./HamburgerMenuIcon";
-import { useState, useContext } from "react";
-import VisibleContext from "@/utils/VisibleContext";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { routes } from "@/utils/routes";
 
 const Nav = () => {
     const [open, setOpen] = useState(false);
-    const { visibleSection } = useContext(VisibleContext);
+    const { pathname } = useRouter();
     return (
-        <nav className="w-full lg:w-fit lg:min-w-max text-center flex flex-col lg:sticky lg:top-0 lg:self-start">
+        <nav className="text-center flex flex-col items-center bg-white border-b border-main mb-4 shadow-md shadow-main ">
             <HamburgerMenuIcon
                 open={open}
                 onClick={() => {
@@ -15,27 +16,24 @@ const Nav = () => {
                 }}
                 className="lg:hidden m-2"
             />
-            <ul className={`${open ? "max-h-screen" : "max-h-0"} duration-500 overflow-hidden lg:max-h-max lg:p-4 lg:m-4`}>
-                <li className={`text-red p-1 m-1 text-center ${visibleSection === "home" ? "text-red-500" : ""}`}>
-                    <Link href="#home" scroll={false}>
-                        Strona Główna
-                    </Link>
-                </li>
-                <li className="text-red p-1 m-1 text-center">
-                    <Link href="/">Strona Główna</Link>
-                </li>
-                <li className="text-red p-1 m-1 text-center">
-                    <Link href="/">Strona Główna</Link>
-                </li>
-                <li className="text-red p-1 m-1 text-center">
-                    <Link href="/">Strona Główna</Link>
-                </li>
-                <li className="text-red p-1 m-1 text-center">
-                    <Link href="#tak" scroll={false}>
-                        Strona Główna
-                    </Link>
-                </li>
-            </ul>
+            <div className="w-full lg:w-fit relative m-auto">
+                <ul
+                    className={`${
+                        open ? "max-h-screen" : "max-h-0"
+                    } absolute top-0 z-50 lg:static bg-white w-full transition-all duration-500 overflow-hidden flex flex-col lg:flex-row lg:max-h-max lg:p-2 lg:m-2 mb-4 shadow-md shadow-main lg:shadow-none `}>
+                    {routes.map(({ href, title }) => (
+                        <li
+                            key={href}
+                            className={`p-4 mx-4 text-center  rounded-md  ${
+                                pathname === href ? "shadow-md shadow-main text-main" : "text-dark hover:shadow-md hover:shadow-light"
+                            } transition-all duration-300`}>
+                            <Link href={href} scroll={false} className="uppercase" onClick={() => setOpen(false)}>
+                                {title}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </nav>
     );
 };

@@ -6,12 +6,7 @@ interface Props {
 }
 
 const Container = ({ children }: Props) => {
-    return (
-        <div className="max-w-screen-xl lg:flex">
-            <Nav />
-            <div className="max-w-screen-lg w-full m-auto bg-bg min-h-screen block relative">{children}</div>
-        </div>
-    );
+    return <div className="max-w-screen-lg w-full m-auto bg-bg min-h-screen block relative">{children}</div>;
 };
 
 export default Container;

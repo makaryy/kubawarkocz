@@ -13,50 +13,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="">
-                <Container>
-                    <Paper id="home">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, numquam? Quam, eum architecto mollitia a accusamus
-                        quos nisi, impedit sit error doloremque voluptates. Tempora, esse id quibusdam distinctio perspiciatis ullam omnis
-                        dolorem voluptate. Quisquam asperiores tempora, reiciendis sint molestiae non, animi neque corrupti dicta et
-                        necessitatibus expedita? Similique, praesentium minus.
-                    </Paper>
-                    <Paper>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, numquam? Quam, eum architecto mollitia a accusamus
-                        quos nisi, impedit sit error doloremque voluptates. Tempora, esse id quibusdam distinctio perspiciatis ullam omnis
-                        dolorem voluptate. Quisquam asperiores tempora, reiciendis sint molestiae non, animi neque corrupti dicta et
-                        necessitatibus expedita? Similique, praesentium minus.
-                    </Paper>
-                    <Paper>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, numquam? Quam, eum architecto mollitia a accusamus
-                        quos nisi, impedit sit error doloremque voluptates. Tempora, esse id quibusdam distinctio perspiciatis ullam omnis
-                        dolorem voluptate. Quisquam asperiores tempora, reiciendis sint molestiae non, animi neque corrupti dicta et
-                        necessitatibus expedita? Similique, praesentium minus.
-                    </Paper>
-                    <Paper>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, numquam? Quam, eum architecto mollitia a accusamus
-                        quos nisi, impedit sit error doloremque voluptates. Tempora, esse id quibusdam distinctio perspiciatis ullam omnis
-                        dolorem voluptate. Quisquam asperiores tempora, reiciendis sint molestiae non, animi neque corrupti dicta et
-                        necessitatibus expedita? Similique, praesentium minus.
-                    </Paper>
-                    <Paper>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, numquam? Quam, eum architecto mollitia a accusamus
-                        quos nisi, impedit sit error doloremque voluptates. Tempora, esse id quibusdam distinctio perspiciatis ullam omnis
-                        dolorem voluptate. Quisquam asperiores tempora, reiciendis sint molestiae non, animi neque corrupti dicta et
-                        necessitatibus expedita? Similique, praesentium minus.
-                    </Paper>
-                    <Paper>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, numquam? Quam, eum architecto mollitia a accusamus
-                        quos nisi, impedit sit error doloremque voluptates. Tempora, esse id quibusdam distinctio perspiciatis ullam omnis
-                        dolorem voluptate. Quisquam asperiores tempora, reiciendis sint molestiae non, animi neque corrupti dicta et
-                        necessitatibus expedita? Similique, praesentium minus.
-                    </Paper>
-                    <Paper id="tak">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, numquam? Quam, eum architecto mollitia a accusamus
-                        quos nisi, impedit sit error doloremque voluptates. Tempora, esse id quibusdam distinctio perspiciatis ullam omnis
-                        dolorem voluptate. Quisquam asperiores tempora, reiciendis sint molestiae non, animi neque corrupti dicta et
-                        necessitatibus expedita? Similique, praesentium minus.
-                    </Paper>
-                </Container>
+                <Paper>Soon...</Paper>
             </main>
         </>
     );

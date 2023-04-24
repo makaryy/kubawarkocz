@@ -4,12 +4,16 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                bg: " #e0e0e0",
+                main: "#4C0013",
+                secondary: "#897172",
+                light: "#BFA5A6",
+                dark: "#222500",
+                accent: "#4C5213"
             },
             boxShadow: {
-                paper: "33px 33px 67px #bebebe,-33px -33px 67px #ffffff",
-            },
-        },
+                paper: "33px 33px 67px #bebebe,-33px -33px 67px #ffffff"
+            }
+        }
     },
-    plugins: [],
+    plugins: []
 };
