@@ -8,7 +8,9 @@ const Paper = ({ children, className, ...props }: Props) => {
     return (
         <div
             {...props}
-            className={`bg-transparent flex items-center justify-center flex-col rounded-2xl shadow-xl p-4 m-4 ${className ? className : ""}`}>
+            className={`bg-transparent flex items-center justify-center flex-col rounded-2xl shadow-xl shadow-neutral-900 p-4 m-4 ${
+                className ? className : ""
+            }`}>
             {children}
         </div>
     );

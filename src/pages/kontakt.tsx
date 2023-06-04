@@ -4,6 +4,7 @@ import { MdPhoneAndroid, MdMailOutline } from "react-icons/md";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { IFormData } from "@/utils/types";
+import Page from "@/components/Page";
 
 const Contact = () => {
     const [email, setEmail] = useState("");
@@ -28,65 +29,71 @@ const Contact = () => {
         }
     };
 
+    // TODO: validation
+
     return (
-        <div className="flex flex-col justify-center items-center text-dark">
-            <Paper className="w-3/4 md:w-1/2">
-                <p className="text-center mb-4 text-3xl">Zapraszam do kontaktu</p>
-                <div className="flex flex-wrap items-center justify-around p-4 max-w-[250px]">
-                    <Link href="https://www.instagram.com/csimagic/" target="_blank">
+        <Page>
+            <div className="flex flex-col justify-center items-center text-dark">
+                <Paper className="w-3/4 md:w-1/2">
+                    <p className="text-center mb-4 text-3xl">Zapraszam do kontaktu</p>
+                    <div className="flex flex-wrap items-center justify-around p-4 max-w-[250px]">
+                        <Link href="https://www.instagram.com/csimagic/" target="_blank">
+                            <p className="mb-4 text-center ">
+                                <SiInstagram className="m-auto w-8 h-8 text-main text-rose-800" /> @csimagic
+                            </p>
+                        </Link>
                         <p className="mb-4 text-center ">
-                            <SiInstagram className="m-auto w-8 h-8 text-main" /> @csimagic
+                            <MdPhoneAndroid className="m-auto w-8 h-8 text-main text-rose-800" />
+                            603 521 429
                         </p>
-                    </Link>
-                    <p className="mb-4 text-center ">
-                        <MdPhoneAndroid className="m-auto w-8 h-8 text-main" />
-                        603 521 429
-                    </p>
-                    <p className="mb-4 text-center ">
-                        <MdMailOutline className="m-auto w-8 h-8 text-main" /> kubaw.iluzja@gmail.com
-                    </p>
-                </div>
-                {response && (
-                    <div
-                        className={`self-stretch text-center border-2 rounded-md p-4 m-4 opacity-90 ${
-                            response.status === 200 ? "border-green-500 bg-green-700 text-white" : "border-red-500 bg-rose-800 text-white"
-                        }`}>
-                        {response.message}
+                        <p className="mb-4 text-center ">
+                            <MdMailOutline className="m-auto w-8 h-8 text-main text-rose-800" /> kubaw.iluzja@gmail.com
+                        </p>
                     </div>
-                )}
-                <form onSubmit={handleSubmit} className="flex flex-col justify-around items-stretch w-full">
-                    <label htmlFor="email" className="ml-4">
-                        E-mail:
-                    </label>
-                    <input
-                        name="email"
-                        id="email"
-                        type="email"
-                        required
-                        className="min-w-[250px] m-4 w  border  shadow-md shadow-light rounded-md p-2 outline-secondary  text-base"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                    />
-                    <label htmlFor="message" className="ml-4">
-                        Wiadomość:
-                    </label>
-                    <textarea
-                        name="message"
-                        id="message"
-                        required
-                        rows={10}
-                        className="min-w-[250px] m-4 w border  shadow-md shadow-light rounded-md p-2 outline-secondary text-base resize-none"
-                        onChange={(e) => setMessage(e.target.value)}
-                        value={message}
-                    />
-                    <button
-                        type="submit"
-                        className="border-2 m-4 mt-6 bg-main border-white text-light hover:text-dark shadow-md shadow-light rounded-md p-2 outline-secondary text-base  hover:bg-secondary hover:-translate-y-2 active:translate-y-0 transition-all duration-300">
-                        Wyślij
-                    </button>
-                </form>
-            </Paper>
-        </div>
+                    {response && (
+                        <div
+                            className={`self-stretch text-center border-2 rounded-md p-4 m-4 opacity-90 ${
+                                response.status === 200 ? "border-green-500 bg-green-700 text-white" : "border-red-500 bg-rose-800 text-white"
+                            }`}>
+                            {response.message}
+                        </div>
+                    )}
+                    <form onSubmit={handleSubmit} className="flex flex-col justify-around items-stretch w-full">
+                        <label htmlFor="email" className="ml-4 ">
+                            E-mail:
+                        </label>
+                        <input
+                            name="email"
+                            id="email"
+                            type="email"
+                            required
+                            className="min-w-[250px] m-4  shadow-md shadow-neutral-900 rounded-md p-2 text-base border-transparent outline-none border-2 border-neutral-600  bg-neutral-600 focus:border-rose-800 placeholder:text-neutral-300/40"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            placeholder="np. kubaw.iluzja@gmail.com"
+                        />
+                        <label htmlFor="message" className="ml-4 ">
+                            Wiadomość:
+                        </label>
+                        <textarea
+                            name="message"
+                            id="message"
+                            required
+                            rows={10}
+                            className="min-w-[250px] m-4 shadow-md shadow-neutral-900 rounded-md p-2 text-base border-transparent resize-none outline-none border-2 border-neutral-600  bg-neutral-600 focus:border-rose-800 placeholder:text-neutral-300/40"
+                            onChange={(e) => setMessage(e.target.value)}
+                            value={message}
+                            placeholder="Cokolwiek byś chciał/chciała zapytać"
+                        />
+                        <button
+                            type="submit"
+                            className="m-4 mt-6 bg-main hover:text-dark shadow-md shadow-neutral-900 rounded-md p-2 text-base hover:-translate-y-2 active:translate-y-0 transition-all duration-300 bg-rose-800">
+                            Wyślij
+                        </button>
+                    </form>
+                </Paper>
+            </div>
+        </Page>
     );
 };
 

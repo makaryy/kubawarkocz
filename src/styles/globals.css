@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background: fixed #736766 no-repeat radial-gradient(ellipse farthest-corner at center center, #343434 0%, #171717 85%);
+    color: #e2e2e0;
+}
+
+.homepage-ribbon {
+    clip-path: polygon(100.1% 0%, 100.1% 300px, 70% 100.3%, 30% 100.3%, 74.9% 0%);
+}

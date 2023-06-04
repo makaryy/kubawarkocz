@@ -1,53 +1,55 @@
-import Paper from "@/components/Paper";
+import OfferItem from "@/components/OfferItem";
+import Page from "@/components/Page";
+import data from "@/utils/data";
+import Image from "next/image";
+import Link from "next/link";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+
+const {
+    about: {
+        title,
+        images,
+        link: { href, label },
+        textPostLink,
+        textPreLink
+    }
+} = data;
+
+// TODO: google reviews
 
 const About = () => {
     return (
-        <article>
-            <div className="flex flex-col justify-center items-center p-8">
-                <Paper className="w-full">
-                    <p className="text-center text-sm md:text-lg">
-                        Z wykształcenia kryminolog, z zawodu iluzjonista. Wiedzę na temat ludzkiego umysłu wykorzystuje jednak podczas swoich pokazów
-                        - co w połączeniu z magicznymi umiejętnościami daje nam jedyne w swoim rodzaju show ! Od ponad 5 lat występuje zarówno dla
-                        dzieci i dorosłych, z talią kart zjeździł całą Polskę, występował w największych miastach w kraju. Na najbliższej imprezie
-                        chętnie dostarczy rozrywki Tobie i Twoim gościa !
+        <Page>
+            <div className="flex flex-col-reverse lg:flex-row justify-around items-center p-8 lg:min-h-[calc(100vh-128px)]">
+                <div className="relative max-w-lg m-8">
+                    <h2 className="hidden lg:block text-5xl pb-6 text-center">{title}</h2>
+                    <p className="text-center text-lg md:text-xl">
+                        {textPreLink}
+                        <Link href={href} className="text-rose-800">
+                            {label}
+                        </Link>
+                        {textPostLink}
                     </p>
-                </Paper>
-                {/* <Carousel showThumbs={false} showStatus={false} swipeable infiniteLoop showArrows={matches ? true : false}>
-                        <Box>
-                            <img
-                                src="/assets/kuba2.JPG"
-                                alt="Kuba Warkocz 2"
-                                style={{
-                                    height: matches ? "730px" : "450px",
-                                    objectFit: matches ? "cover" : "contain",
-                                    backgroundColor: "rgba(0,0,0,0.1)"
-                                }}
-                            />
-                        </Box>
-                        <Box>
-                            <img
-                                src="/assets/kuba3.JPG"
-                                alt="Kuba Warkocz 3"
-                                style={{
-                                    height: matches ? "730px" : "450px",
-                                    objectFit: matches ? "contain" : "cover",
-                                    backgroundColor: "rgba(0,0,0,0.1)"
-                                }}
-                            />
-                        </Box>
-                        <Box>
-                            <img
-                                src="/assets/kuba4.JPG"
-                                alt="Kuba Warkocz 4"
-                                style={{
-                                    height: matches ? "730px" : "450px",
-                                    objectFit: matches ? "cover" : "contain",
-                                    backgroundColor: "rgba(0,0,0,0.1)"
-                                }}
-                            />
-                    </Carousel> */}
+                </div>
+                <Carousel
+                    centerMode={false}
+                    swipeable
+                    showThumbs={false}
+                    emulateTouch
+                    infiniteLoop={true}
+                    showStatus={false}
+                    showIndicators
+                    autoPlay
+                    interval={3000}
+                    className=" w-[360px] sm:w-[480px]">
+                    {images.map(({ alt, src }) => (
+                        <Image src={src} alt={alt} width={480} height={640} key={src} className="rounded-lg border-2 border-rose-800 " />
+                    ))}
+                </Carousel>
+                <h2 className="lg:hidden text-4xl pb-6">{title}</h2>
             </div>
-        </article>
+        </Page>
     );
 };
 
