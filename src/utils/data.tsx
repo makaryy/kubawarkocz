@@ -52,7 +52,7 @@ const data = {
         },
     ],
     offerFooter: {
-        text: "*Wymienione w ofercie wydarzenia to podstawowe propozycje do wyboru. Istnieje możliwość występu również na innych imprezach, takich jak na przykład wieczór kawalerski czy festyn. W celu ustalenia szczegółów zapraszam do",
+        text: "*Wymienione w ofercie wydarzenia to podstawowe propozycje do wyboru. Istnieje możliwość występu również na innych imprezach, takich jak na przykład wieczór kawalerski czy impreza plenerowa. W celu ustalenia szczegółów zapraszam do",
         link: { label: "kontaktu", href: "/contact" },
     },
     homepage: {
@@ -124,6 +124,44 @@ const data = {
             send: "Wyślij",
         },
         messagePlaceholder: "Czy jesteś dostępny za 2 miesiące?",
+    },
+    reviews: {
+        link: {
+            label: "Zobacz wszystkie opinie",
+            href: "https://www.google.pl/search?q=kuba%20warkocz&sxsrf=APwXEdc3K7PiZGtM0zac0TLdpOHdzIJxlg%3A1685902977538&source=hp&ei=gdZ8ZMr9HcXx6AOtqqDgBg&iflsig=AOEireoAAAAAZHzkkb_CPFrQBUd4fKz2X8R5DZv98Z1w&ved=0ahUKEwiKwuWAnqr_AhXFOHoKHS0VCGwQ4dUDCAk&uact=5&oq=kuba%20warkocz&gs_lcp=Cgdnd3Mtd2l6EAMyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyDQguEMcBENEDEOoCECcyBwgjEOoCECc6BwgjEIoFECc6EQguEIMBEMcBELEDENEDEIAEOgsIABCABBCxAxCDAToICAAQgAQQsQNQAFjbGmDeGmgBcAB4AYABoAKIAcsDkgEFMC4xLjGYAQCgAQGwAQo&sclient=gws-wiz&fbclid=IwAR3SVf4jV0NfPpKB8O7JtYovee85Fz96BTMk_C37Q8lS5W1KwuZyIg84jQE#lrd=0xaf961c725eca6777:0x743b7019af79a8c1,1,,,,",
+        },
+        reviewList: [
+            {
+                rating: 5,
+                user: "Eugen Fret",
+
+                review: "Kuba występował na naszym weselu, występ bardzo nam się spodobał a szczególnie numer z kostką rubika. Kuba bardzo profesjonalnie podchodzi do swojego zawodu i sprawił że znów mogliśmy poczuć sie jak dzieci. polecam",
+            },
+            {
+                rating: 5,
+                user: "Hubert Palewski",
+
+                review: "Kuba posiada wyjątkowe zdolności we wprowadzaniu publiczności w osłupienie. Sam pokaz bardzo ciekawy i wciągający, zbudowany na autorkiej opowieści, okraszonej błyskotliwym żartem i nieoczekiwanym plot-twistem. Świetny kontakt z widownią w każdym wieku i tworzenie osobliwej atmosfery tajemniczości i zaskoczenia to cechy dobrego przewdonika po świecie iluzji, przez które zdecydowanie nikt nie spojarzy na zegarek w trakcie występu.\n \n Z pewnością wybiorę się jeszcze raz przy najbliższej okazji.",
+            },
+            {
+                rating: 5,
+                user: "Kamila Iskrzyńska",
+
+                review: "Niesamowite przeżycie. Pokaz na najwyższym poziomie, trzymający przez cały wieczór w napięciu. Pokazane sztuczki były nietuzinkowe, angażowały publiczność i z każdą chwilą zaskakiwały coraz bardziej. Jestem pod ogromnym wrażeniem, długo zapamiętam to widowisko.",
+            },
+            {
+                rating: 5,
+                user: "Piotr Ficek",
+
+                review: "Występ iluzjonistyczny Kuby to niezapomniane doświadczenie. Jego umiejętności są imponujące, a występ pełen jest nieoczekiwanych zwrotów akcji. Polecam go każdemu, kto chce zobaczyć prawdziwie profesjonalne show.",
+            },
+            {
+                rating: 5,
+                user: "Protyp",
+
+                review: "Pan występował na imprezie urodzinowej mojej narzeczonej. Wszyscy bawili się świetnie. Kupa śmiechu i dobrej zabawy :D.",
+            },
+        ],
     },
 };
 
