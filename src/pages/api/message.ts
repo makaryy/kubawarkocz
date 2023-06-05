@@ -39,11 +39,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 const mg = mailgun.client({ username: "api", key: process.env.MAILGUN_API_KEY });
 
                 const { status } = await mg.messages.create(process.env.MAILGUN_DOMAIN, {
-                    // to: "makaryyrakam@gmail.com",
                     to: "kubaw.iluzja@gmail.com",
                     from: body.email,
                     subject: "Wiadomość ze strony kubawarkocz.pl",
-                    html: generateHtml(body.message)
+                    html: generateHtml(body.message),
                 });
                 res.status(200).json({ status, message: "Message sent." });
             } catch (error) {

@@ -77,6 +77,10 @@ const data = {
                 icon: <GiCardKingClubs />,
             },
         ],
+        image: {
+            alt: "Kuba Warkocz - iluzjonista",
+            src: "/homepage-image.webp",
+        },
     },
     about: {
         title: "O MNIE",

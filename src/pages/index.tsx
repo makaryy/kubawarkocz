@@ -1,13 +1,17 @@
 import Page from "@/components/Page";
 import Image from "next/image";
 import Head from "next/head";
-import { motion } from "framer-motion";
-import { GiCardKingClubs, GiFairyWand, GiMagicHat } from "react-icons/gi";
 import Link from "next/link";
 import data from "@/utils/data";
 
 const {
-    homepage: { links, name, subtitle, title }
+    homepage: {
+        links,
+        name,
+        subtitle,
+        title,
+        image: { alt, src },
+    },
 } = data;
 
 export default function Home() {
@@ -41,7 +45,7 @@ export default function Home() {
                 </div>
 
                 <div className="border-2 border-rose-800 rounded-lg">
-                    <Image width={400} height={600} alt="Kuba Warkocz - iluzjonista" src={"/homepage-image.webp"} className="rounded-lg" />
+                    <Image width={400} height={600} alt={alt} src={src} className="rounded-lg" />
                 </div>
             </main>
         </Page>
