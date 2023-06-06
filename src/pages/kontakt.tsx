@@ -6,8 +6,11 @@ import { useState, FormEvent } from "react";
 import { IFormData } from "@/utils/types";
 import Page from "@/components/Page";
 import data from "@/utils/data";
+import Head from "next/head";
 
-const { email: emailAddress, facebook, instagram, labels, phoneNumber, title, messagePlaceholder } = data.contact;
+const {
+    contact: { email: emailAddress, facebook, instagram, labels, phoneNumber, title, messagePlaceholder, seo },
+} = data;
 
 const Contact = () => {
     const [email, setEmail] = useState("");
@@ -36,6 +39,15 @@ const Contact = () => {
 
     return (
         <Page>
+            <Head>
+                <title>{seo.title}</title>
+                <meta name="description" content={seo.description} />
+                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+                <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+                <link rel="manifest" href="/site.webmanifest" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <div className="flex flex-col justify-center items-center text-dark">
                 <Paper className="w-3/4 lg:w-1/2">
                     <p className="text-center mb-4 text-3xl">{title}</p>

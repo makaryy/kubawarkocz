@@ -2,59 +2,66 @@ import { GiFairyWand, GiMagicHat, GiCardKingClubs } from "react-icons/gi";
 import { MdOutlineBusiness, MdOutlineCake, MdOutlineCelebration, MdOutlineLiquor } from "react-icons/md";
 
 const data = {
-    parties: [
-        {
-            title: "WESELA",
-            icon: <MdOutlineLiquor />,
-            desc: "W tym wyjątkowym dniu pokaz dostarczy zarówno gościom, jak i państwu młodym wielu powodów do śmiechu. Występ dostosowany pod indywidualne preferencje klienta tak,aby po weselu zostało tylko zadowolenie i miłe wspomnienia.",
+    offer: {
+        seo: {
+            title: "Oferta - Iluzjonista Kuba Warkocz",
+            description: "Iluzjonista na wesele? Magik na urodziny? Pokaz dla dzieci? Te i wiele więcej atrakcji znajdziesz w ofercie.",
         },
-        {
-            title: "URODZINY",
-            icon: <MdOutlineCake />,
-            desc: "Świetna okazja na urozmaicenie imprezy urodzinowej. Pokaz iluzji pozostawi solenizanta z uśmiechem na twarzy,a jego gościom dostarczy niecodziennej formy rozrywki.",
-        },
-        {
-            title: "POKAZ FIRMOWY",
-            icon: <MdOutlineBusiness />,
-            desc: "Występ angażujący osoby z widowni idealnie wzmacnia więzi międzyludzkie, co jest niewątpliwie ważne dla współpracowników. Dzięki pokazowi iluzji nie będzie to standardowa impreza firmowa,a coś znacznie lepszego i bardziej magicznego.",
-        },
-        {
-            title: "DLA DZIECI",
-            icon: <MdOutlineCelebration />,
-            desc: "Dostosowany idealnie pod młodą publikę występ magiczny. Sztuczki zawierające w sobie motywy z popularnych bajek i komiksów szczególnie takich,które dana publika lubi najbardziej. Wszystko po to aby każdy wyszedł z pokazu zadowolony.",
-        },
-    ],
-    offerItems: [
-        {
-            title: "STAND UP",
-            main: "Pokaz sceniczny, który przeplata dużą dawkę humoru z niesamowitymi efektami magicznymi. Występ angażuje całą publikę, kontakt z widownią jest nieprzerwany, dzięki czemu każdy z osobna może doświadczyć niezapomnianych wrażeń i emocji. Pokaz trwa 25 minut i jest dostosowany zarówno do kameralnej grupy jaki i do większego grona odbiorców (pokaz idealnie sprawdzi się w grupie do 200 widzów). Stand up to niepowtarzalna okazja do świetnej zabawy i doznania magii w najbardziej spektakularnym wydaniu.",
-            image: {
-                src: "https://res.cloudinary.com/dqyhe8ogi/image/upload/c_scale,h_340/v1684352879/kubawarkocz/gallery/06_cpfhqf.webp",
-                alt: "STAND UP IMAGE",
+        parties: [
+            {
+                title: "WESELA",
+                icon: <MdOutlineLiquor />,
+                desc: "W tym wyjątkowym dniu pokaz dostarczy zarówno gościom, jak i państwu młodym wielu powodów do śmiechu. Występ dostosowany pod indywidualne preferencje klienta tak,aby po weselu zostało tylko zadowolenie i miłe wspomnienia.",
             },
-        },
-        {
-            title: "CLOSE UP",
-            main: "Indywidualne podejście do klienta i bezpośredni kontakt z magią to czynniki wyróżniające close up. Sztuczki prezentowane są dla każdego stolika gości z osobna, co zapewnia najbliższy możliwy kontakt z magią oraz niezapomniane emocja dla każdego uczestnika. Iluzjonista przy każdym, stoliku może spędzić od 5 do 15 minut co sprawia że długość występu można dostosować do imprezy mając pewność że każdy z gości doświadczy iluzji z bliska w swoich rękach. Występ angażujący osoby z widowni idealnie wzmacnia więzi międzyludzkie, co jest niewątpliwie ważne dla współpracowników. Dzięki pokazowi iluzji nie będzie to standardowa impreza firmowa, a coś zintegruje waszych pracowników i zostanie w ich pamięci na długi czas.",
-            imgOnLeft: true,
-            image: {
-                src: "https://res.cloudinary.com/dqyhe8ogi/image/upload/c_scale,h_340/v1684352882/kubawarkocz/gallery/12_rxyp56.webp",
-                alt: "CLOSE UP IMAGE",
+            {
+                title: "URODZINY",
+                icon: <MdOutlineCake />,
+                desc: "Świetna okazja na urozmaicenie imprezy urodzinowej. Pokaz iluzji pozostawi solenizanta z uśmiechem na twarzy,a jego gościom dostarczy niecodziennej formy rozrywki.",
             },
-        },
-        {
-            title: "STAND UP + CLOSE UP",
-            main: "Perfekcyjna kombinacja dwóch świetnych form występów magicznych. Połączenie spektakularnego występu scenicznego z indywidualnym dostarczeniem rozrywki stolikowej zapewni gościom niesamowite przeżycia i świetną rozrywkę. Każdy z widowni zostanie oczarowany w pełnej skali i z pewnością nie zapomni tego do końca życia.",
-            image: {
-                src: "https://res.cloudinary.com/dqyhe8ogi/image/upload/c_scale,h_340/v1684352872/kubawarkocz/gallery/22_hzfkyj.webp",
-                alt: "STAND UP + CLOSE UP IMAGE",
+            {
+                title: "POKAZ FIRMOWY",
+                icon: <MdOutlineBusiness />,
+                desc: "Występ angażujący osoby z widowni idealnie wzmacnia więzi międzyludzkie, co jest niewątpliwie ważne dla współpracowników. Dzięki pokazowi iluzji nie będzie to standardowa impreza firmowa,a coś znacznie lepszego i bardziej magicznego.",
             },
+            {
+                title: "DLA DZIECI",
+                icon: <MdOutlineCelebration />,
+                desc: "Dostosowany idealnie pod młodą publikę występ magiczny. Sztuczki zawierające w sobie motywy z popularnych bajek i komiksów szczególnie takich,które dana publika lubi najbardziej. Wszystko po to aby każdy wyszedł z pokazu zadowolony.",
+            },
+        ],
+        offerItems: [
+            {
+                title: "STAND UP",
+                main: "Pokaz sceniczny, który przeplata dużą dawkę humoru z niesamowitymi efektami magicznymi. Występ angażuje całą publikę, kontakt z widownią jest nieprzerwany, dzięki czemu każdy z osobna może doświadczyć niezapomnianych wrażeń i emocji. Pokaz trwa 25 minut i jest dostosowany zarówno do kameralnej grupy jaki i do większego grona odbiorców (pokaz idealnie sprawdzi się w grupie do 200 widzów). Stand up to niepowtarzalna okazja do świetnej zabawy i doznania magii w najbardziej spektakularnym wydaniu.",
+                image: {
+                    src: "https://res.cloudinary.com/dqyhe8ogi/image/upload/c_scale,h_340/v1684352879/kubawarkocz/gallery/06_cpfhqf.webp",
+                    alt: "STAND UP IMAGE",
+                },
+            },
+            {
+                title: "CLOSE UP",
+                main: "Indywidualne podejście do klienta i bezpośredni kontakt z magią to czynniki wyróżniające close up. Sztuczki prezentowane są dla każdego stolika gości z osobna, co zapewnia najbliższy możliwy kontakt z magią oraz niezapomniane emocja dla każdego uczestnika. Iluzjonista przy każdym, stoliku może spędzić od 5 do 15 minut co sprawia że długość występu można dostosować do imprezy mając pewność że każdy z gości doświadczy iluzji z bliska w swoich rękach. Występ angażujący osoby z widowni idealnie wzmacnia więzi międzyludzkie, co jest niewątpliwie ważne dla współpracowników. Dzięki pokazowi iluzji nie będzie to standardowa impreza firmowa, a coś zintegruje waszych pracowników i zostanie w ich pamięci na długi czas.",
+                imgOnLeft: true,
+                image: {
+                    src: "https://res.cloudinary.com/dqyhe8ogi/image/upload/c_scale,h_340/v1684352882/kubawarkocz/gallery/12_rxyp56.webp",
+                    alt: "CLOSE UP IMAGE",
+                },
+            },
+            {
+                title: "STAND UP + CLOSE UP",
+                main: "Perfekcyjna kombinacja dwóch świetnych form występów magicznych. Połączenie spektakularnego występu scenicznego z indywidualnym dostarczeniem rozrywki stolikowej zapewni gościom niesamowite przeżycia i świetną rozrywkę. Każdy z widowni zostanie oczarowany w pełnej skali i z pewnością nie zapomni tego do końca życia.",
+                image: {
+                    src: "https://res.cloudinary.com/dqyhe8ogi/image/upload/c_scale,h_340/v1684352872/kubawarkocz/gallery/22_hzfkyj.webp",
+                    alt: "STAND UP + CLOSE UP IMAGE",
+                },
+            },
+        ],
+        footer: {
+            text: "*Wymienione w ofercie wydarzenia to podstawowe propozycje do wyboru. Istnieje możliwość występu również na innych imprezach, takich jak na przykład wieczór kawalerski czy impreza plenerowa. W celu ustalenia szczegółów zapraszam do",
+            link: { label: "kontaktu", href: "/contact" },
         },
-    ],
-    offerFooter: {
-        text: "*Wymienione w ofercie wydarzenia to podstawowe propozycje do wyboru. Istnieje możliwość występu również na innych imprezach, takich jak na przykład wieczór kawalerski czy impreza plenerowa. W celu ustalenia szczegółów zapraszam do",
-        link: { label: "kontaktu", href: "/contact" },
     },
+
     homepage: {
         title: "Zwycięzca II Ogólnopolskiego Turnieju Iluzjonistów",
         name: "KUBA WARKOCZ",
@@ -80,6 +87,11 @@ const data = {
         image: {
             alt: "Kuba Warkocz - iluzjonista",
             src: "/homepage-image.webp",
+        },
+        seo: {
+            title: "Iluzjonista Kuba Warkocz",
+            description:
+                "Kuba Warkocz - iluzjonista oraz magik z Krakowa. Stand up, close up, urodziny, wesela, imprezy firmowe, występy dla dzieci i więcej.",
         },
     },
     about: {
@@ -109,6 +121,11 @@ const data = {
                 alt: "Kuba Warkocz - Zdjęcie 04",
             },
         ],
+        seo: {
+            title: "O mnie - Iluzjonista Kuba Warkocz",
+            description:
+                "Kuba Warkocz - iluzjonista oraz magik dostarczający wiele rozrywki. Kraków, Wrocław, Katowice i nie tylko. Atrakcja na wesele, urodziny oraz imprezę firmową",
+        },
     },
     contact: {
         title: "Zapraszam do kontaktu",
@@ -128,6 +145,11 @@ const data = {
             send: "Wyślij",
         },
         messagePlaceholder: "Czy jesteś dostępny za 2 miesiące?",
+        seo: {
+            title: "Kontakt - Iluzjonista Kuba Warkocz",
+            description:
+                "Zamów występ na urodziny, wesele czy imprezę firmową. Skontaktuj się - zadzwoń lub napisz. Dobra zabawa gwarantowana.",
+        },
     },
     reviews: {
         link: {
@@ -166,6 +188,13 @@ const data = {
                 review: "Pan występował na imprezie urodzinowej mojej narzeczonej. Wszyscy bawili się świetnie. Kupa śmiechu i dobrej zabawy :D.",
             },
         ],
+    },
+    gallery: {
+        seo: {
+            title: "Galeria - Iluzjonista Kuba Warkocz",
+            description:
+                "Niezapomniane wspomnienia oraz wieczna pamiątka z twojej imprezy. Zobacz jak w akcji wygląda Iluzjonista Kuba Warkocz z Krakowa.",
+        },
     },
 };
 

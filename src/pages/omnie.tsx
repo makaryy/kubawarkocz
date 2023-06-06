@@ -5,6 +5,7 @@ import Link from "next/link";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { MdStarRate } from "react-icons/md";
+import Head from "next/head";
 
 const {
     about: {
@@ -13,6 +14,7 @@ const {
         link: { href, label },
         textPostLink,
         textPreLink,
+        seo,
     },
     reviews,
 } = data;
@@ -20,6 +22,15 @@ const {
 const About = () => {
     return (
         <Page>
+            <Head>
+                <title>{seo.title}</title>
+                <meta name="description" content={seo.description} />
+                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+                <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+                <link rel="manifest" href="/site.webmanifest" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <div className="flex flex-col-reverse lg:flex-row justify-around items-center p-8 mb-8 lg:min-h-[calc(100vh-128px)]">
                 <div className="relative max-w-lg m-8">
                     <h2 className="hidden lg:block text-5xl pb-6 text-center">{title}</h2>

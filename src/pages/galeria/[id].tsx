@@ -1,15 +1,17 @@
 import Image from "next/image";
-import Link from "next/link";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import cloudinary from "@/utils/cloudinary";
 import { ICloudinarySearchResult, IImage } from "@/utils/types";
 import { MdArrowForward, MdArrowBack, MdClose } from "react-icons/md";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useDisplayedImage } from "@/utils/hooks";
-import { useEffect } from "react";
 import Modal from "@/components/Modal";
-import Page from "@/components/Page";
+import data from "@/utils/data";
+
+const {
+    gallery: { seo },
+} = data;
 
 interface Props {
     currentPhoto: IImage;
@@ -22,29 +24,34 @@ const DisplayedImage = ({ currentPhoto, lastId }: Props) => {
 
     return (
         <>
-            {/* <Head>
-                <title>Galeria - DJ Kuba</title>
-                <meta name="description" content="Galeria zdjęć - imprezy, wesela i osiemnastki czyli DJ KUBA w akcji." />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <Head>
+                <title>{seo.title}</title>
+                <meta name="description" content={seo.description} />
                 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
                 <link rel="manifest" href="/site.webmanifest" />
-            </Head> */}
+            </Head>
             <Modal isOpen={true} onClose={handleClose}>
                 <div
                     className="absolute aspect-[3/2] flex justify-center items-center max-h-screen max-w-[100vw]"
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
-                    onTouchEnd={handleTouchEnd}>
+                    onTouchEnd={handleTouchEnd}
+                >
                     <motion.div
                         className="aspect-[3/2] max-h-screen max-w-[100vw] h-auto w-full md:h-full md:w-auto"
                         key={`photo${currentPhoto.id}`}
                         initial={
-                            lastViewedPhoto ? { x: lastViewedPhoto > currentPhoto.id ? -1000 : 1000, opacity: 0 } : { y: 400, scale: 1.1, opacity: 0 }
+                            lastViewedPhoto
+                                ? { x: lastViewedPhoto > currentPhoto.id ? -1000 : 1000, opacity: 0 }
+                                : { y: 400, scale: 1.1, opacity: 0 }
                         }
                         animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
-                        exit={nextPhoto ? { x: nextPhoto < currentPhoto.id ? 1000 : -1000, opacity: 0 } : { y: 400, scale: 0.8, opacity: 0 }}>
+                        exit={
+                            nextPhoto ? { x: nextPhoto < currentPhoto.id ? 1000 : -1000, opacity: 0 } : { y: 400, scale: 0.8, opacity: 0 }
+                        }
+                    >
                         <Image
                             src={currentPhoto.src}
                             alt={currentPhoto.alt}
@@ -60,7 +67,8 @@ const DisplayedImage = ({ currentPhoto, lastId }: Props) => {
                         whileHover={{ backgroundColor: "#00000080" }}
                         transition={{ duration: 0.3 }}
                         className="absolute left-3 sm:left-4 top-3 sm:top-4 bg-black  w-12 h-12 rounded-full flex justify-center items-center "
-                        onClick={handleClose}>
+                        onClick={handleClose}
+                    >
                         <MdClose className="text-white text-base sm:text-2xl" />
                     </motion.button>
                     <motion.button
@@ -68,7 +76,8 @@ const DisplayedImage = ({ currentPhoto, lastId }: Props) => {
                         whileHover={{ backgroundColor: "#00000080" }}
                         transition={{ duration: 0.3 }}
                         className="hidden sm:flex absolute left-4 bg-black  w-12 h-12 rounded-full justify-center items-center"
-                        onClick={handleBack}>
+                        onClick={handleBack}
+                    >
                         <MdArrowBack className="text-white text-2xl" />
                     </motion.button>
                     <motion.button
@@ -76,7 +85,8 @@ const DisplayedImage = ({ currentPhoto, lastId }: Props) => {
                         whileHover={{ backgroundColor: "#00000080" }}
                         transition={{ duration: 0.3 }}
                         className="hidden sm:flex absolute right-4 bg-black  w-12 h-12 rounded-full justify-center items-center"
-                        onClick={handleForward}>
+                        onClick={handleForward}
+                    >
                         <MdArrowForward className="text-white text-2xl" />
                     </motion.button>
                 </div>
@@ -98,7 +108,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
             id: index + 1,
             alt: `Kuba Warkocz - zdjęcie ${image.filename}`,
             width: image.width,
-            height: image.height
+            height: image.height,
         };
     });
 
@@ -109,8 +119,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
         props: {
             currentPhoto,
-            lastId
-        }
+            lastId,
+        },
     };
 };
 
@@ -128,7 +138,7 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: false
+        fallback: false,
     };
 }
 
