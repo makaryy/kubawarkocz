@@ -152,6 +152,7 @@ const data = {
         },
     },
     reviews: {
+        title: "Opinie Google",
         link: {
             label: "Zobacz wszystkie opinie",
             href: "https://www.google.pl/search?q=kuba%20warkocz&sxsrf=APwXEdc3K7PiZGtM0zac0TLdpOHdzIJxlg%3A1685902977538&source=hp&ei=gdZ8ZMr9HcXx6AOtqqDgBg&iflsig=AOEireoAAAAAZHzkkb_CPFrQBUd4fKz2X8R5DZv98Z1w&ved=0ahUKEwiKwuWAnqr_AhXFOHoKHS0VCGwQ4dUDCAk&uact=5&oq=kuba%20warkocz&gs_lcp=Cgdnd3Mtd2l6EAMyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyBwgjEOoCECcyDQguEMcBENEDEOoCECcyBwgjEOoCECc6BwgjEIoFECc6EQguEIMBEMcBELEDENEDEIAEOgsIABCABBCxAxCDAToICAAQgAQQsQNQAFjbGmDeGmgBcAB4AYABoAKIAcsDkgEFMC4xLjGYAQCgAQGwAQo&sclient=gws-wiz&fbclid=IwAR3SVf4jV0NfPpKB8O7JtYovee85Fz96BTMk_C37Q8lS5W1KwuZyIg84jQE#lrd=0xaf961c725eca6777:0x743b7019af79a8c1,1,,,,",

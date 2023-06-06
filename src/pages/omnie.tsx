@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import { MdStarRate } from "react-icons/md";
 import Head from "next/head";
 
 const {
@@ -16,7 +15,6 @@ const {
         textPreLink,
         seo,
     },
-    reviews,
 } = data;
 
 const About = () => {
@@ -59,35 +57,6 @@ const About = () => {
                     ))}
                 </Carousel>
                 <h2 className="lg:hidden text-4xl pb-6">{title}</h2>
-            </div>
-            <div className="flex flex-col border-t border-rose-800 mx-8">
-                <h3 className="text-4xl my-8 text-center">Opinie Google</h3>
-                <Carousel
-                    centerMode={false}
-                    swipeable
-                    showThumbs={false}
-                    emulateTouch
-                    showStatus={false}
-                    showIndicators
-                    className="w-full max-w-3xl mt-4 mx-auto h-max"
-                >
-                    {reviews.reviewList.map(({ rating, review, user }) => (
-                        <div key={`${user} - ${review}`} className="w-full max-w-3xl h-full bg-neutral-700 text-left py-8 px-12 rounded-lg">
-                            <div>
-                                <p className="text-lg">{user}</p>
-                                <div className="flex gap-1 text-yellow-400 text-lg">
-                                    {Array.from({ length: rating }, (_, i) => (
-                                        <MdStarRate key={`star-${i}`} />
-                                    ))}
-                                </div>
-                            </div>
-                            <p className="my-4">{review}</p>
-                        </div>
-                    ))}
-                </Carousel>
-                <Link href={reviews.link.href} target="_blank" className="w-full max-w-3xl mx-auto text-sm underline text-right mb-4">
-                    {reviews.link.label}
-                </Link>
             </div>
         </Page>
     );

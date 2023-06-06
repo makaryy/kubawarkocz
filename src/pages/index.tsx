@@ -3,6 +3,9 @@ import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import data from "@/utils/data";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import { MdStarRate } from "react-icons/md";
 
 const {
     homepage: {
@@ -13,6 +16,7 @@ const {
         image: { alt, src },
         seo,
     },
+    reviews,
 } = data;
 
 export default function Home() {
@@ -47,11 +51,39 @@ export default function Home() {
                         ))}
                     </ul>
                 </div>
-
                 <div className="border-2 border-rose-800 rounded-lg">
                     <Image width={400} height={600} alt={alt} src={src} priority className="rounded-lg" />
                 </div>
             </main>
+            <div className="flex flex-col border-t border-rose-800 mx-8">
+                <h3 className="text-4xl my-8 text-center">{reviews.title}</h3>
+                <Carousel
+                    centerMode={false}
+                    swipeable
+                    showThumbs={false}
+                    emulateTouch
+                    showStatus={false}
+                    showIndicators
+                    className="w-full max-w-3xl mt-4 mx-auto h-max"
+                >
+                    {reviews.reviewList.map(({ rating, review, user }) => (
+                        <div key={`${user} - ${review}`} className="w-full max-w-3xl h-full bg-neutral-700 text-left py-8 px-12 rounded-lg">
+                            <div>
+                                <p className="text-lg">{user}</p>
+                                <div className="flex gap-1 text-yellow-400 text-lg">
+                                    {Array.from({ length: rating }, (_, i) => (
+                                        <MdStarRate key={`star-${i}`} />
+                                    ))}
+                                </div>
+                            </div>
+                            <p className="my-4">{review}</p>
+                        </div>
+                    ))}
+                </Carousel>
+                <Link href={reviews.link.href} target="_blank" className="w-full max-w-3xl mx-auto text-sm underline text-right mb-4">
+                    {reviews.link.label}
+                </Link>
+            </div>
         </Page>
     );
 }
