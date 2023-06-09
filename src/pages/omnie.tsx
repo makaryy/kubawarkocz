@@ -49,12 +49,12 @@ const About = () => {
                     infiniteLoop={true}
                     showStatus={false}
                     showIndicators
-                    autoPlay
+                    // autoPlay
                     interval={3000}
-                    className=" w-[360px] sm:w-[480px] px-4">
+                    className=" w-[360px] sm:w-[480px] px-4 overflow-hidden">
                     {images.map(({ alt, src }, index) =>
                         index > 0 ? (
-                            <motion.div key={`about-carousel-item-${index}`} exit={{ display: "none" }}>
+                            <motion.div key={`about-carousel-item-${index}`} exit={{ display: "none" }} transition={{ duration: 0 }}>
                                 <Image src={src} alt={alt} width={480} height={640} key={src} className="rounded-lg border-2 border-rose-800 " />
                             </motion.div>
                         ) : (
