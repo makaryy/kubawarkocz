@@ -43,7 +43,8 @@ const About = () => {
                 </div>
                 <motion.div
                     key={`about-carousel`}
-                    exit={{ scale: 0.8, opacity: 0, originY: 0 }}
+                    exit={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0 }}
                     className="overflow-hidden">
                     <Carousel
