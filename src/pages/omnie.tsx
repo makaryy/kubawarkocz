@@ -41,12 +41,7 @@ const About = () => {
                         {textPostLink}
                     </p>
                 </div>
-                <motion.div
-                    key={`about-carousel`}
-                    exit={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0 }}
-                    className="overflow-hidden">
+                <motion.div key={`about-carousel`} exit={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="overflow-hidden">
                     <Carousel
                         centerMode={false}
                         swipeable
