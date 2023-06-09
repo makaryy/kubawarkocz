@@ -41,27 +41,27 @@ const About = () => {
                         {textPostLink}
                     </p>
                 </div>
-                <Carousel
-                    centerMode={false}
-                    swipeable
-                    showThumbs={false}
-                    emulateTouch
-                    infiniteLoop={true}
-                    showStatus={false}
-                    showIndicators
-                    // autoPlay
-                    interval={3000}
-                    className=" w-[360px] sm:w-[480px] px-4 overflow-hidden">
-                    {images.map(({ alt, src }, index) =>
-                        index > 0 ? (
-                            <motion.div key={`about-carousel-item-${index}`} exit={{ display: "none" }} transition={{ duration: 0 }}>
-                                <Image src={src} alt={alt} width={480} height={640} key={src} className="rounded-lg border-2 border-rose-800 " />
-                            </motion.div>
-                        ) : (
+                <motion.div
+                    key={`about-carousel`}
+                    exit={{ scale: 0.8, opacity: 0, originY: 0 }}
+                    transition={{ duration: 0 }}
+                    className="overflow-hidden">
+                    <Carousel
+                        centerMode={false}
+                        swipeable
+                        showThumbs={false}
+                        emulateTouch
+                        infiniteLoop={true}
+                        showStatus={false}
+                        showIndicators
+                        // autoPlay
+                        interval={3000}
+                        className=" w-[360px] sm:w-[480px] px-4">
+                        {images.map(({ alt, src }) => (
                             <Image src={src} alt={alt} width={480} height={640} key={src} className="rounded-lg border-2 border-rose-800 " />
-                        )
-                    )}
-                </Carousel>
+                        ))}
+                    </Carousel>
+                </motion.div>
                 <h2 className="lg:hidden text-4xl pb-6">{title}</h2>
             </div>
         </Page>
