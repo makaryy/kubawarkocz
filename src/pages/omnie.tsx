@@ -5,6 +5,7 @@ import Link from "next/link";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Head from "next/head";
+import { motion } from "framer-motion";
 
 const {
     about: {
@@ -13,8 +14,8 @@ const {
         link: { href, label },
         textPostLink,
         textPreLink,
-        seo,
-    },
+        seo
+    }
 } = data;
 
 const About = () => {
@@ -50,11 +51,16 @@ const About = () => {
                     showIndicators
                     autoPlay
                     interval={3000}
-                    className=" w-[360px] sm:w-[480px] px-4"
-                >
-                    {images.map(({ alt, src }) => (
-                        <Image src={src} alt={alt} width={480} height={640} key={src} className="rounded-lg border-2 border-rose-800 " />
-                    ))}
+                    className=" w-[360px] sm:w-[480px] px-4">
+                    {images.map(({ alt, src }, index) =>
+                        index > 0 ? (
+                            <motion.div key={`about-carousel-item-${index}`} exit={{ display: "none" }}>
+                                <Image src={src} alt={alt} width={480} height={640} key={src} className="rounded-lg border-2 border-rose-800 " />
+                            </motion.div>
+                        ) : (
+                            <Image src={src} alt={alt} width={480} height={640} key={src} className="rounded-lg border-2 border-rose-800 " />
+                        )
+                    )}
                 </Carousel>
                 <h2 className="lg:hidden text-4xl pb-6">{title}</h2>
             </div>
