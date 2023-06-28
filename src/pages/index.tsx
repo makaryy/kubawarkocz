@@ -58,9 +58,9 @@ export default function Home() {
                 <h3 className="text-4xl my-8 text-center">{reviews.title}</h3>
                 <Carousel
                     dots
-                    className="w-[480px] h-[720px] rounded-lg"
+                    className="rounded-lg w-full max-w-3xl mt-4 mx-auto h-max"
                     items={reviews.reviewList.map(({ rating, review, user }) => (
-                        <div key={`${user} - ${review}`} className="w-full max-w-3xl h-full bg-neutral-700 text-left py-8 px-12 rounded-lg">
+                        <div key={`${user} - ${review}`} className="w-full max-w-3xl h-full bg-neutral-700 text-left py-8 px-12">
                             <div>
                                 <p className="text-lg">{user}</p>
                                 <div className="flex gap-1 text-yellow-400 text-lg">

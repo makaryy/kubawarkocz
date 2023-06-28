@@ -11,9 +11,10 @@ interface CarouselProps {
     dots?: boolean;
     loop?: boolean;
     delay?: number;
+    autoplay?: boolean;
 }
 
-const Carousel = ({ items, arrows = true, className, dots = false, loop = false, delay = 3000 }: CarouselProps) => {
+const Carousel = ({ items, arrows = true, className, dots = false, loop = false, delay = 3000, autoplay = false }: CarouselProps) => {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop }, [Autoplay({ delay })]);
     const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -22,6 +23,9 @@ const Carousel = ({ items, arrows = true, className, dots = false, loop = false,
             emblaApi.on("select", (api) => {
                 setCurrentSlide(api.selectedScrollSnap());
             });
+            if (!autoplay) {
+                if (emblaApi) emblaApi.plugins().autoplay?.destroy();
+            }
         }
     }, [emblaApi]);
 
