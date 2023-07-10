@@ -41,9 +41,10 @@ const About = () => {
                 </div>
                 <Carousel
                     loop
-                    className="w-[480px] h-[720px] rounded-lg"
+                    className="w-80 h-[480px]
+                    sm:w-[480px] sm:h-[720px] rounded-lg"
                     items={images.map(({ alt, src }) => (
-                        <Image src={src} alt={alt} width={480} height={640} key={src} />
+                        <Image src={src} alt={alt} width={480} height={720} key={src} />
                     ))}
                 />
                 <h2 className="lg:hidden text-4xl pb-6">{title}</h2>
