@@ -13,9 +13,10 @@ const {
         subtitle,
         title,
         image: { alt, src },
-        seo,
+        iframe,
+        seo
     },
-    reviews,
+    reviews
 } = data;
 
 export default function Home() {
@@ -50,8 +51,31 @@ export default function Home() {
                         ))}
                     </ul>
                 </div>
-                <div className="border-2 border-rose-800 rounded-lg">
-                    <Image width={400} height={600} alt={alt} src={src} priority className="rounded-lg" />
+                <div className="">
+                    <iframe
+                        className="hidden lg:block"
+                        width="560"
+                        height="315"
+                        src={iframe.src}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen></iframe>
+                    <iframe
+                        className="hidden sm:block lg:hidden"
+                        width="440"
+                        height="248"
+                        src={iframe.src}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen></iframe>
+                    <iframe
+                        className="block aspect-video sm:hidden"
+                        width="320"
+                        height="180"
+                        src={iframe.src}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen></iframe>
                 </div>
             </main>
             <div className="flex flex-col border-t border-rose-800 mx-8">
