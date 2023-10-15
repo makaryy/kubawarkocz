@@ -53,13 +53,23 @@ export default function Home() {
                 </div>
                 <div className="">
                     <iframe
-                        className="hidden lg:block"
+                        className="hidden 2xl:block"
+                        width="800"
+                        height="540"
+                        src={iframe.src}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                    />
+                    <iframe
+                        className="hidden lg:block 2xl:hidden"
                         width="560"
                         height="315"
                         src={iframe.src}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen></iframe>
+                        allowFullScreen
+                    />
                     <iframe
                         className="hidden sm:block lg:hidden"
                         width="440"
@@ -67,7 +77,8 @@ export default function Home() {
                         src={iframe.src}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen></iframe>
+                        allowFullScreen
+                    />
                     <iframe
                         className="block aspect-video sm:hidden"
                         width="320"
@@ -75,7 +86,8 @@ export default function Home() {
                         src={iframe.src}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen></iframe>
+                        allowFullScreen
+                    />
                 </div>
             </main>
             <div className="flex flex-col border-t border-rose-800 mx-8">
